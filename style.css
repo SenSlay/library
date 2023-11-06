@@ -3,17 +3,14 @@
     padding: 0;
     border: 0;
     font-family: 'Roboto', sans-serif;
+    --primary-bg-color: #E3E2DF;        
 }
 
 body {
     display: flex;
     flex-direction: column;
     height: 100vh;
-    background-color: #E3E2DF;
-    justify-content: center;
-    align-items: center;
 }
-
 
 .header {
     display: flex;
@@ -21,10 +18,20 @@ body {
 
 .main {
     display: flex;
-    height: 100%;
-    width: 100%;
     padding: 50px;
-    justify-content: center;
-    background-color: #7EB2DD;
+    height: 100vh;
+    background-color: var(--primary-bg-color);
 }
 
+.book-container {
+    display: grid;
+    width: 100%;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 50px 50px;
+}
+
+.book {
+    min-height: 200px;
+    max-height: 250px;
+    background-color: rgb(169, 88, 88);
+}
