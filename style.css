@@ -1,0 +1,30 @@
+* {
+    margin: 0;
+    padding: 0;
+    border: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    background-color: #E3E2DF;
+    justify-content: center;
+    align-items: center;
+}
+
+
+.header {
+    display: flex;
+}
+
+.main {
+    display: flex;
+    height: 100%;
+    width: 100%;
+    padding: 50px;
+    justify-content: center;
+    background-color: #7EB2DD;
+}
+
