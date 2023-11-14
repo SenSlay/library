@@ -10,20 +10,11 @@ function Book(title, author, pages, read) {
 };
 
 const sampleBook = new Book("Rich Dad Poor Dad", "Robert Kiyasaki", 360, false);
-
-const sampleBook2 = new Book("The Subtle Art", "Mark Manson", 280, false)
-
-console.log(sampleBook);
-
-library.push(sampleBook2);
+addBookToLibrary(sampleBook);
 
 function addBookToLibrary(book) {
     library.push(book);
 };
-
-addBookToLibrary(sampleBook);
-
-console.log(library);
 
 // Display book/s in HTML
 function displayBooks() {
