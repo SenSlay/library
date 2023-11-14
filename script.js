@@ -19,9 +19,9 @@ function addBookToLibrary(book) {
 // Display book/s in HTML
 function displayBooks() {
     const bookCtn = document.querySelector(".book-ctn");
+    bookCtn.innerHTML = "";
 
     library.forEach(item => {
-        console.log("Book: ", item.title);
 
         bookCtn.insertAdjacentHTML("afterbegin", `
         <div class="book">
