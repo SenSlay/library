@@ -25,8 +25,8 @@ addBookToLibrary(sampleBook);
 
 console.log(library);
 
-
-function displayBook() {
+// Display book/s in HTML
+function displayBooks() {
     const bookCtn = document.querySelector(".book-ctn");
 
     library.forEach(item => {
@@ -49,4 +49,37 @@ function displayBook() {
     });
 };
 
-displayBook();
+const modal = document.getElementById("modal");
+const form = document.getElementById("book-form");
+
+document.getElementById("open-modal").addEventListener("click", function() {
+  modal.style.display = "block";
+});
+
+document.getElementById("close-modal").addEventListener("click", function() {
+  modal.style.display = "none";
+});
+
+form.addEventListener("submit", function(event) {
+  event.preventDefault(); // Prevent the default form submission
+
+  // Check if input fields are filled
+  if (form.checkValidity()) {
+    modal.style.display = "none"; 
+
+    const title = document.getElementById("title").value;
+    const author = document.getElementById("author").value;
+    const pages = document.getElementById("pages").value;
+    const isRead = document.getElementById("is-read").value;
+
+    const book = new Book(title, author, pages, isRead);
+
+    addBookToLibrary(book);
+    displayBooks();
+    }
+
+    // Reset the form to clear the input fields
+    this.reset();
+});
+
+displayBooks();
