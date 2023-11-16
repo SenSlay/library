@@ -1,5 +1,5 @@
 // Array for books
-const library = [];
+let library = [];
 
 // Constructor function for book
 function Book(title, author, pages, read) {
@@ -9,6 +9,7 @@ function Book(title, author, pages, read) {
     this.read = Boolean(read) ? "Read" : "Not read";
 };
 
+// Sample book
 const sampleBook = new Book("Rich Dad Poor Dad", "Robert Kiyasaki", 360, false);
 addBookToLibrary(sampleBook);
 
@@ -20,6 +21,9 @@ function addBookToLibrary(book) {
 function displayBooks() {
     const bookCtn = document.querySelector(".book-ctn");
     bookCtn.innerHTML = "";
+
+    // Retrieve saved user data and assign to libary array
+    library = retrieveData();
 
     library.forEach(item => {
 
@@ -52,7 +56,7 @@ document.getElementById("close-modal").addEventListener("click", function() {
 });
 
 form.addEventListener("submit", function(event) {
-  event.preventDefault(); // Prevent the default form submission
+  event.preventDefault();
 
   // Check if input fields are filled
   if (form.checkValidity()) {
@@ -66,11 +70,22 @@ form.addEventListener("submit", function(event) {
     const book = new Book(title, author, pages, isRead);
 
     addBookToLibrary(book);
+    saveData();
     displayBooks();
     }
 
     // Reset the form to clear the input fields
     this.reset();
 });
+
+// Save stringified library array
+function saveData() {
+    localStorage.setItem("data", JSON.stringify(library));
+}
+
+// Retrieve saved user data
+function retrieveData() {
+    return JSON.parse(localStorage.getItem("data"));
+}
 
 displayBooks();
