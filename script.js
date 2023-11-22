@@ -12,6 +12,12 @@ function Book(title, author, pages, read, id) {
 
 function addBookToLibrary(book) {
     library.push(book);
+    saveLibrary();
+};
+
+function removeBookFromLibrary(id) {
+    library.splice(library.findIndex(book => book.id === id), 1);
+    saveLibrary();
 };
 
 // Display book/s in HTML
@@ -19,18 +25,16 @@ function displayBooks() {
     const bookCtn = document.querySelector(".book-ctn");
     bookCtn.innerHTML = "";
 
-    // Retrieve saved user data and assign to libary array
-    library = retrieveData();
+    // Retrieve saved library, or assign an empty array if library is null
+    library = retrieveLibrary() ? retrieveLibrary() : [];
 
     library.forEach(item => {
-
         bookCtn.insertAdjacentHTML("afterbegin", `
-        <div class="book">
+        <div class="book" data-book-id="${item.id}">
             <div class="book-description">
                 <h1 class="title">${item.title}</h1>
                 <h3 class="author">${item.author}</h3>
                 <p>Pages: ${item.pages}</p>
-                <div id="book-id" style="display: none;">${item.id}</div>
             </div>
 
             <div class="button-ctn">
@@ -70,7 +74,6 @@ form.addEventListener("submit", function(event) {
     const book = new Book(title, author, pages, isRead, bookId);
 
     addBookToLibrary(book);
-    saveData();
     displayBooks();
     }
 
@@ -80,15 +83,16 @@ form.addEventListener("submit", function(event) {
 
 const bookCtn = document.querySelector(".book-ctn");
 
+// Event listener for delete button
+// Used event delegation by adding one event listener to a parent element instead of adding to every .dlt-btn for better efficiency 
 bookCtn.addEventListener("click", (event) => {
-    if (event.target.classList.contains('dlt-btn')) {
+    if (event.target.classList.contains("dlt-btn")) {
         if (confirm('Confirm to delete')) {
             // Delete the book element
-            event.target.closest('.book').remove();
+            event.target.closest(".book").remove();
 
-            saveData();
-            console.log(library);
-            console.log(event.target);
+            // Remove book item from library array
+            removeBookFromLibrary(parseInt(event.target.closest(".book").dataset.bookId));
         }
     }
 });
@@ -106,18 +110,13 @@ function generateUniqueId() {
 };
 
 // Save stringified library array
-function saveData() {
+function saveLibrary() {
     localStorage.setItem("data", JSON.stringify(library));
 };
 
 // Retrieve saved user data
-function retrieveData() {
+function retrieveLibrary() {
     return JSON.parse(localStorage.getItem("data"));
 };
 
-// Sample book
-const sampleBook = new Book("Rich Dad Poor Dad", "Robert Kiyasaki", 360, false, 0);
-
-addBookToLibrary(sampleBook);
-saveData();
 displayBooks();
