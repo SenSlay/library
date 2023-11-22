@@ -67,7 +67,7 @@ form.addEventListener("submit", function(event) {
     const title = document.getElementById("title").value;
     const author = document.getElementById("author").value;
     const pages = document.getElementById("pages").value;
-    const isRead = document.getElementById("is-read").value;
+    const isRead = document.getElementById("is-read").checked;
 
     const bookId = generateUniqueId();
 
