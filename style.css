@@ -138,8 +138,12 @@ main {
     cursor: pointer;
 }
 
-.read-btn {
-    background-color: rgb(239, 85, 85);
+.read {
+    background-color: #2dac2d;
+}
+
+.not-read {
+    background-color: #FF6666;
 }
 
 .dlt-btn {

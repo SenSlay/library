@@ -20,6 +20,17 @@ function removeBookFromLibrary(id) {
     saveLibrary();
 };
 
+function toggleReadStatus(id) {
+    const book = library[library.findIndex(item => item.id === id)];
+    if (book.read === "Read") {
+        book.read = "Not Read";
+    }
+    else {
+        book.read = "Read";
+    }
+    saveLibrary()
+}
+
 // Display book/s in HTML
 function displayBooks() {
     const bookCtn = document.querySelector(".book-ctn");
@@ -38,7 +49,7 @@ function displayBooks() {
             </div>
 
             <div class="button-ctn">
-            <button type="button" class="read-btn">${item.read}</button>
+            <button type="button" class="read-btn ${item.read === "Read" ? "read" : "not-read"}">${item.read}</button>
                 <button type="button" class="dlt-btn">Delete</button>
             </div>
         </div>
@@ -83,17 +94,35 @@ form.addEventListener("submit", function(event) {
 
 const bookCtn = document.querySelector(".book-ctn");
 
-// Event listener for delete button
-// Used event delegation by adding one event listener to a parent element instead of adding to every .dlt-btn for better efficiency 
+// Used event delegation by adding one event listener to a parent element instead of every .dlt-btn and .read-btn for better efficiency 
 bookCtn.addEventListener("click", (event) => {
+    const bookEl = event.target.closest(".book");
+
     if (event.target.classList.contains("dlt-btn")) {
         if (confirm('Confirm to delete')) {
             // Delete the book element
-            event.target.closest(".book").remove();
+            bookEl.remove();
 
             // Remove book item from library array
-            removeBookFromLibrary(parseInt(event.target.closest(".book").dataset.bookId));
+            removeBookFromLibrary(parseInt(bookEl.dataset.bookId));
         }
+    }
+
+    const readBtn = event.target.closest(".read-btn");
+
+    if (event.target.classList.contains("read-btn")) {
+        if (readBtn.innerHTML == "Read") {
+            readBtn.innerHTML = "Not Read"
+            readBtn.classList.toggle("not-read");
+            readBtn.classList.toggle("read");
+        }
+        else {
+            readBtn.innerHTML = "Read"
+            readBtn.classList.toggle("not-read");
+            readBtn.classList.toggle("read");
+        }
+
+        toggleReadStatus(parseInt(bookEl.dataset.bookId));
     }
 });
 
