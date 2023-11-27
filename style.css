@@ -2,9 +2,11 @@
     margin: 0;
     padding: 0;
     border: 0;
-    font-family: 'Times New Roman', Times, serif;
     --primary-bg-color: #E3E2DF;
-    --book-bg-color: ; 
+}
+
+body, footer {
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 body {
@@ -23,13 +25,13 @@ header {
     display: flex;
     padding: 20px min(50px, 10%);
     background-color: white;
+    font-family: 'Times New Roman', Times, serif;
 }
 
 .add-btn {
-    margin-left: auto;
-    padding: 10px;
+    padding: 10px 20px;
     border: 1px solid;
-    border-radius: 10px;
+    border-radius: 15px;
     cursor: pointer;
 }
 
@@ -84,10 +86,12 @@ header {
     font-size: 24px;
 }
 
-
 main {
     display: flex;
-    padding: 50px;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 30px 50px;
 }
 
 .book-ctn {
@@ -97,6 +101,7 @@ main {
     grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
     grid-template-rows: auto 1fr;
     gap: 50px 50px;
+    margin-top: 30px;
 }
 
 .book {
