@@ -122,10 +122,6 @@ main {
     text-align: center;
 }
 
-.book > * > * {
-    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-}
-
 .book > .button-ctn {
     display: flex;
     width: 100%;
