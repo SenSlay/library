@@ -22,16 +22,6 @@ a {
     text-decoration: none;
 }
 
-.add-btn {
-    padding: 10px 20px;
-    border: var(--light-border);
-    border-radius: 10px;
-    cursor: pointer;
-    font-size: 24px;
-    font-weight: light;
-}
-
-
 header {
     display: flex;
     padding: 20px min(50px, 10%);
@@ -76,7 +66,7 @@ header {
 .form-header > h2 {
     margin: auto;
 }
-  
+
 #book-form > input {
     border: var(--light-border);
     padding: 10px;
@@ -107,6 +97,10 @@ header {
     font-size: 18px;
 }
 
+.submit-btn:hover {
+    background-color: #70d0d6;
+}
+
 .close {
     position: absolute;
     top: -5px;
@@ -126,6 +120,19 @@ main {
     justify-content: center;
     align-items: center;
     padding: 30px 50px;
+}
+
+.add-btn {
+    padding: 10px 20px;
+    border: var(--light-border);
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 24px;
+    font-weight: light;
+}
+
+.add-btn:hover {
+    background-color: #e4e4e4;
 }
 
 .book-ctn {
@@ -188,12 +195,24 @@ main {
     background-color: #75d575;
 }
 
+.read:hover {
+    background-color: #6cc06c;
+}
+
 .not-read {
     background-color: #fb6d6d;
 }
 
+.not-read:hover {
+    background-color: #ec5858;
+}
+
 .dlt-btn {
-    background-color: rgb(141, 139, 139);
+    background-color: rgb(188, 186, 186);
+}
+
+.dlt-btn:hover {
+    background-color: rgb(163, 160, 160);
 }
 
 footer {
