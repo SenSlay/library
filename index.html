@@ -12,9 +12,11 @@
         <h1>Library</h1>
         <div id="modal" class="modal">
             <div class="modal-content">
-                <span class="close" id="close-modal">&times;</span>
                 <form id="book-form">
-                    <h2>New Book</h2>
+                    <div class="form-header">
+                        <h2>Add New Book</h2>
+                        <span class="close" id="close-modal">&times;</span>
+                    </div>
                         
                     <input type="text" id="title" class="book-form-input" placeholder="Title" required>
                     
@@ -22,9 +24,9 @@
 
                     <input type="number" id="pages" class="book-form-input" placeholder="Pages" required>
 
-                    <div class="input-ctn">
-                        <label for="is-read">Read</label>
-                        <input type="checkbox" name="is-read" id="is-read">
+                    <div class="is-read-ctn">
+                        <label for="is-read">Have you read it?</label>
+                        <input type="checkbox" class="is-read-checkbox" name="is-read" id="is-read">
                     </div>
 
                     <button type="submit" class="submit-btn" id="submit-btn">Add to Library</button>
@@ -34,7 +36,7 @@
     </header>
 
     <main>
-        <button type="button" class="add-btn" id="open-modal"><h1>Add Book</h1></button>
+        <button type="button" class="add-btn" id="open-modal">Add Book</button>
 
         <div class="book-ctn">
         </div>
