@@ -6,14 +6,7 @@
     --light-border: 1px solid rgba(0, 0, 0, 0.3);
 }
 
-header {
-    display: flex;
-    padding: 20px min(50px, 10%);
-    background-color: white;
-    font-family: 'Times New Roman', Times, serif;
-}
-
-body, footer, .modal>* {
+body, footer, .modal {
     font-family: Roboto, 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
 }
 
@@ -36,6 +29,15 @@ a {
     cursor: pointer;
     font-size: 24px;
     font-weight: light;
+}
+
+
+header {
+    display: flex;
+    padding: 20px min(50px, 10%);
+    background-color: white;
+    font-family: 'Times New Roman', Times, serif;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .modal {
@@ -143,7 +145,8 @@ main {
     padding: 25px;
     grid-template-rows: 1fr 1fr;
     border-radius: 10px;
-    gap: 10px;
+    gap: 5px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .book-description {
@@ -152,6 +155,15 @@ main {
     width: 100%;
     height: 100%;
     text-align: center;
+}
+
+.book-description > h1 {
+    margin-bottom: 15px;
+}
+
+.book-description > .author {
+    font-weight: 600;
+    font-size: 20px;
 }
 
 .book > .button-ctn {
@@ -169,14 +181,15 @@ main {
     height: 40%;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 16px;
 }
 
 .read {
-    background-color: #2dac2d;
+    background-color: #75d575;
 }
 
 .not-read {
-    background-color: #FF6666;
+    background-color: #fb6d6d;
 }
 
 .dlt-btn {

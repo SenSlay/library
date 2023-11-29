@@ -44,7 +44,7 @@ function displayBooks() {
         <div class="book" data-book-id="${item.id}">
             <div class="book-description">
                 <h1 class="title">${item.title}</h1>
-                <h3 class="author">${item.author}</h3>
+                <p class="author">${item.author}</p>
                 <p>Pages: ${item.pages}</p>
             </div>
 
